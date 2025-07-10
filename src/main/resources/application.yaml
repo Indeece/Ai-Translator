@@ -1,0 +1,23 @@
+spring:
+  application:
+    name: AiTranslator
+  ai:
+    gigachat:
+      scope: ${SCOPE}
+      client-id: ${CLIENT_ID}
+      client-secret: ${CLIENT_SECRET}
+      unsafe-ssl: true
+  datasource:
+    url: ${DB_URL}
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
+    hikari:
+      auto-commit: false
+    jpa:
+      hibernate:
+        ddl-auto: update
+      show-sql:
+        true
+
+jwt:
+  secret: ${JWT_SECRET}
