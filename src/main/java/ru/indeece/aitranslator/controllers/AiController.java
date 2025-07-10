@@ -2,10 +2,9 @@ package ru.indeece.aitranslator.controllers;
 
 import chat.giga.springai.GigaChatModel;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+import ru.indeece.aitranslator.dto.MessageToAiDto;
+import ru.indeece.aitranslator.enums.LangEnum;
 import ru.indeece.aitranslator.services.impl.AiServiceImpl;
 
 @RestController
@@ -16,9 +15,29 @@ public class AiController {
     private final AiServiceImpl aiService;
 
     @GetMapping("/translate")
-    public String ask(@RequestParam String message,
-                      @RequestParam(defaultValue = "ru") String fromLang,
-                      @RequestParam(defaultValue = "eng") String toLang) {
-        return gigaChatModel.call(aiService.translate(message, fromLang, toLang));
+    public String ask(@RequestBody MessageToAiDto messageToAiDto) throws Exception {
+        if (messageToAiDto.getFromLang() == null) {
+            messageToAiDto.setFromLang(getLang(messageToAiDto.getMessage()));
+        }
+
+        if (messageToAiDto.getToLang() == null) {
+            if (messageToAiDto.getFromLang() != LangEnum.ENGLISH) {
+                messageToAiDto.setToLang(LangEnum.ENGLISH);
+            } else {
+                messageToAiDto.setToLang(LangEnum.RUSSIAN);
+            }
+        }
+
+        return gigaChatModel.call(aiService.translate(messageToAiDto.getMessage(),
+                messageToAiDto.getFromLang().getDisplayName(), messageToAiDto.getToLang().getDisplayName()));
+    }
+
+    public LangEnum getLang(String message) throws Exception {
+        String language = gigaChatModel.call(aiService.getLanguage(message));
+        try {
+            return LangEnum.valueOf(language);
+        } catch (IllegalArgumentException e) {
+            throw new Exception("Invalid language " + e.getMessage());
+        }
     }
 }

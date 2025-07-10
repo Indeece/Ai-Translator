@@ -12,4 +12,12 @@ public class AiServiceImpl {
                 fromLang, toLang, message);
         return prompt;
     }
+
+    public String getLanguage(String message) {
+        String lang = String.format("У меня есть enum с языками: RUSSIAN, ENGLISH, CHINESE, SPANISH, FRENCH, GERMAN, " +
+                "PORTUGUESE. Определи язык сообщения '%s'.  Ответь ТОЛЬКО одним словом — одним из этих: RUSSIAN, " +
+                "ENGLISH, CHINESE, SPANISH, FRENCH, GERMAN, PORTUGUESE. Никаких пояснений, только это одно слово. " +
+                "Если язык не из списка — ответь 0.", message);
+        return lang;
+    }
 }
