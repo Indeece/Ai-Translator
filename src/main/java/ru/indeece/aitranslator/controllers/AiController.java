@@ -14,7 +14,7 @@ public class AiController {
     private final GigaChatModel gigaChatModel;
     private final AiServiceImpl aiService;
 
-    @GetMapping("/translate")
+    @PostMapping("/translate")
     public String ask(@RequestBody MessageToAiDto messageToAiDto) throws Exception {
         if (messageToAiDto.getFromLang() == null) {
             messageToAiDto.setFromLang(getLang(messageToAiDto.getMessage()));

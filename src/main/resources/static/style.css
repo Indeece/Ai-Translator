@@ -1,0 +1,103 @@
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #f0f2f5;
+    display: flex;
+    justify-content: center;
+    padding: 60px 20px;
+}
+
+.container {
+    width: 100%;
+    max-width: 800px;
+    background: white;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 0 25px rgba(0,0,0,0.1);
+}
+
+.auth, .main-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+input, select, textarea, button {
+    padding: 12px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    width: 100%;
+    box-sizing: border-box;
+    margin-top: 5px;
+}
+
+input {
+    height: 45px;
+}
+
+textarea {
+    resize: vertical;
+}
+
+h2 {
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.toggle {
+    text-align: center;
+}
+
+.header {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.arrow {
+    font-size: 18px;
+}
+
+.translator {
+    display: flex;
+    gap: 15px;
+}
+
+.translator textarea {
+    height: 200px;
+    flex: 1;
+}
+
+.translate {
+    padding: 10px 20px;
+    margin-top: 10px;
+    background-color: #4caf50;
+    color: white;
+    font-size: 16px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.translate:hover {
+    background-color: #3e8e41;
+}
+
+.logout {
+    margin-top: 10px;
+    background-color: transparent;
+    color: #666;
+    border: 1px solid #ccc;
+    font-size: 14px;
+    padding: 6px 12px;
+    cursor: pointer;
+    border-radius: 5px;
+    align-self: flex-end;
+}
+
+.logout:hover {
+    background-color: #eee;
+}

@@ -7,7 +7,6 @@ import lombok.Data;
 
 @Data
 public class UserDto {
-    @NotBlank(message = "UserId cannot be empty")
     private String userId;
 
     @NotBlank(message = "Username cannot be empty")

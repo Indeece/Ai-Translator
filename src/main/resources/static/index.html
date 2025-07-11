@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AI Translator</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+    <!-- Авторизация -->
+    <div class="auth" id="authContainer">
+        <h2>Sign In</h2>
+        <input type="email" id="loginEmail" placeholder="Email">
+        <input type="password" id="loginPassword" placeholder="Password">
+        <button onclick="signIn()">Sign In</button>
+        <p class="toggle">or <a href="#" onclick="toggleAuth()">Register</a></p>
+    </div>
+
+    <!-- Регистрация -->
+    <div class="auth" id="registerContainer" style="display: none;">
+        <h2>Register</h2>
+        <input type="text" id="regUsername" placeholder="Username">
+        <input type="email" id="regEmail" placeholder="Email">
+        <input type="password" id="regPassword" placeholder="Password">
+        <button onclick="register()">Register</button>
+        <p class="toggle">or <a href="#" onclick="toggleAuth()">Sign In</a></p>
+    </div>
+
+    <!-- Переводчик -->
+    <div class="main-container" id="translatorContainer" style="display: none;">
+        <div class="header">
+            <select id="fromLang">
+                <option value="">Auto</option>
+                <option value="RUSSIAN">Russian</option>
+                <option value="ENGLISH">English</option>
+                <option value="CHINESE">Chinese</option>
+                <option value="SPANISH">Spanish</option>
+                <option value="FRENCH">French</option>
+                <option value="GERMAN">German</option>
+                <option value="PORTUGUESE">Portuguese</option>
+            </select>
+            <span class="arrow">→</span>
+            <select id="toLang">
+                <option value="">Auto</option>
+                <option value="RUSSIAN">Russian</option>
+                <option value="ENGLISH">English</option>
+                <option value="CHINESE">Chinese</option>
+                <option value="SPANISH">Spanish</option>
+                <option value="FRENCH">French</option>
+                <option value="GERMAN">German</option>
+                <option value="PORTUGUESE">Portuguese</option>
+            </select>
+        </div>
+
+        <div class="translator">
+            <textarea id="inputText" placeholder="Type text..."></textarea>
+            <textarea id="outputText" placeholder="Translation..." readonly></textarea>
+        </div>
+
+        <button class="translate" onclick="translateText()">Translate</button>
+        <button class="logout" onclick="logout()">Logout</button>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
