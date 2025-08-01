@@ -1,60 +1,59 @@
 # 🌐 AI Translator
 
-Веб-приложение для перевода текста с использованием искусственного интеллекта (**GigaChat API**). Поддерживает авторизацию пользователей и перевод между 7 языками.
+A web application for text translation using artificial intelligence (**GigaChat API**). Supports user authentication and translation between 7 languages.
 
 ![Java](https://img.shields.io/badge/Java-17-red?logo=java)
 ![Spring Boot](https://img.shields.io/badge/Spring_Boot-3.1-green?logo=spring)
 
 ---
 
-## 📚 Содержание
+## 📚 Table of Contents
 
-- [🛠 Технологии](#-технологии)
-- [⚙️ Установка](#️-установка)
-- [🚀 Использование](#-использование)
+- [🛠 Technologies](#-technologies)
+- [⚙️ Installation](#️-installation)
+- [🚀 Usage](#-usage)
 - [🔌 API](#-api)
-- [👨‍💻 Разработка](#-разработка)
-- [📄 Лицензия](#-лицензия)
+- [👨‍💻 Development](#-development)
+- [📄 License](#-license)
 
 ---
 
-## 🛠 Технологии
+## 🛠 Technologies
 
 ### Backend:
 - Java 17  
 - Spring Boot 3  
 - Spring Security  
-- JWT аутентификация  
+- JWT Authentication  
 
 ### Frontend:
 - HTML5, CSS3, JavaScript (Vanilla)  
 
-### База данных:
+### Database:
 - PostgreSQL  
 
-### AI-интеграция:
+### AI Integration:
 - GigaChat API  
 
 ---
 
-## ⚙️ Установка
+## ⚙️ Installation
 
-### Требования:
+### Requirements:
 - JDK 17+
 - PostgreSQL 14+
 - Maven 3.8+
 
-### Шаги:
+### Steps:
 
-1. **Клонируйте репозиторий:**
+1. **Clone the repository:**
    ```bash
    git clone https://github.com/your-username/ai-translator.git
    cd ai-translator
-   ```
 
-2. **Настройте базу данных:**
+2. **Configure the database:**
 
-   Создайте файл `application.yml` в `src/main/resources/`:
+    Create an `application.yml` in `src/main/resources/`:
 
    ```yaml
    spring:
@@ -67,16 +66,16 @@
          ddl-auto: update
 
    jwt:
-     secret: ваш-секретный-ключ-длиной-не-менее-32-символов
+     secret: your-secret-key-with-at-least-32-characters
    ```
 
-3. **Запустите приложение:**
+3. **Run the application:**
 
    ```bash
    ./mvnw spring-boot:run
    ```
 
-4. **Откройте в браузере:**
+4. **Open in browser:**
 
    ```
    http://localhost:8080
@@ -84,56 +83,27 @@
 
 ---
 
-## 🚀 Использование
+## 🚀 Usage
 
-### 🔐 Авторизация:
+### 🔐 Authentication:
 
-- Зарегистрируйте нового пользователя
-- Войдите с вашими учетными данными
+- Register a new user
 
-### 🌍 Перевод текста:
+- Log in with your credentials
 
-- Выберите исходный и целевой язык (или автоопределение)
-- Введите текст
-- Нажмите **"Translate"**
+### 🌍 Text Translation:
+
+- Select source and target languages (or auto-detect)
+- Enter text
+- Click "Translate"
 
 ---
 
 ## 🔌 API
 
-| Метод | Путь                | Описание                     | Аутентификация |
-|-------|---------------------|------------------------------|----------------|
-| POST  | `/auth/signIn`      | Вход в систему               | ❌             |
-| POST  | `/auth/registration`| Регистрация пользователя     | ❌             |
-| POST  | `/auth/refresh`     | Обновление токена            | ✅ (Refresh)   |
-| POST  | `/ai/translate`     | Перевод текста через AI      | ✅ (Access)    |
-
----
-
-## 👨‍💻 Разработка
-
-### ✅ Тестирование:
-
-```bash
-./mvnw test
-```
-
-### 📦 Сборка:
-
-```bash
-./mvnw clean package
-```
-
-### 🤝 Вклад:
-
-1. Форкните репозиторий
-2. Создайте ветку (`git checkout -b feature/ваша-фича`)
-3. Сделайте коммит (`git commit -m 'Добавил фичу'`)
-4. Запушьте (`git push origin feature/ваша-фича`)
-5. Откройте Pull Request
-
----
-
-
-**Автор:** Антон Шконда 
-**Версия:** 1.0.0
+| Method | Path                | Description                  | Authentication |
+|--------|---------------------|------------------------------|----------------|
+| POST   | `/auth/signIn`      | User login                   | ❌             |
+| POST   | `/auth/registration`| User registration            | ❌             |
+| POST   | `/auth/refresh`     | Token refresh                | ✅ (Refresh)   |
+| POST   | `/ai/translate`     | Translate text via AI        | ✅ (Access)    |
